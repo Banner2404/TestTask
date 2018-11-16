@@ -18,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let locationManager = DefaultLocationManager()
+        locationManager.start()
         appCoordinator = AppCoordinator(window, locationManager: locationManager)
         appCoordinator.start()
         window.makeKeyAndVisible()

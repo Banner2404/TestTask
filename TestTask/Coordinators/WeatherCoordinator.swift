@@ -18,5 +18,8 @@ class WeatherCoordinator {
     
     func start() {
         window.rootViewController = LoadingViewController()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
+            self.window.rootViewController = WeatherViewController()
+        }
     }
 }

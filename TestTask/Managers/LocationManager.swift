@@ -10,9 +10,10 @@ import Foundation
 import CoreLocation
 
 protocol LocationManager {
-    var latestLocation: CLLocation? { get }
+    var latestLocation: Location? { get }
     
     func requestAuthorizationIfNeeded()
+    func start()
 }
 
 extension Notification.Name {
@@ -21,11 +22,12 @@ extension Notification.Name {
 
 class DefaultLocationManager: NSObject, LocationManager {
     
-    var latestLocation: CLLocation? {
+    var latestLocation: Location? {
         didSet {
             NotificationCenter.default.post(name: .LocationManagerDidUpdateLatestLocation, object: self)
         }
     }
+    private let geocoder = CLGeocoder()
     private let locationManager = CLLocationManager()
     
     override init() {
@@ -36,6 +38,23 @@ class DefaultLocationManager: NSObject, LocationManager {
     
     func requestAuthorizationIfNeeded() {
         locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func start() {
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
+    
+    private func loadCityInfo(for clLocation: CLLocation) {
+        if geocoder.isGeocoding {
+            geocoder.cancelGeocode()
+        }
+        geocoder.reverseGeocodeLocation(clLocation) { (placemarks, error) in
+            if let error = error {
+                print(error)
+            }
+            guard let cityName = placemarks?.first?.locality else { return }
+            self.latestLocation = Location(clLocation: clLocation, city: cityName)
+        }
     }
 }
 
@@ -53,8 +72,9 @@ extension DefaultLocationManager: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        latestLocation = locations.first
+        guard let location = locations.last else { return }
         print(locations)
+        loadCityInfo(for: location)
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
