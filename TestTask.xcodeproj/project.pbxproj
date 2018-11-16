@@ -18,6 +18,9 @@
 		D1962B30219EFE70004C8DD4 /* TutorialSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */; };
 		D1962B32219F0015004C8DD4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1962B31219F0015004C8DD4 /* .gitignore */; };
 		D1962B34219F0051004C8DD4 /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */; };
+		D1962B37219F0176004C8DD4 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B35219F0176004C8DD4 /* LoadingViewController.swift */; };
+		D1962B38219F0176004C8DD4 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1962B36219F0176004C8DD4 /* LoadingViewController.xib */; };
+		D1962B3A219F01AB004C8DD4 /* WeatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B39219F01AB004C8DD4 /* WeatherCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialSecondViewController.xib; sourceTree = "<group>"; };
 		D1962B31219F0015004C8DD4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
+		D1962B35219F0176004C8DD4 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		D1962B36219F0176004C8DD4 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		D1962B39219F01AB004C8DD4 /* WeatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +91,8 @@
 				D1962B23219EFBDF004C8DD4 /* TutorialFirstViewController.xib */,
 				D1962B2D219EFE70004C8DD4 /* TutorialSecondViewController.swift */,
 				D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */,
+				D1962B35219F0176004C8DD4 /* LoadingViewController.swift */,
+				D1962B36219F0176004C8DD4 /* LoadingViewController.xib */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -94,6 +102,7 @@
 			children = (
 				D1962B27219EFC12004C8DD4 /* AppCoordinator.swift */,
 				D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */,
+				D1962B39219F01AB004C8DD4 /* WeatherCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -159,6 +168,7 @@
 				D1962B32219F0015004C8DD4 /* .gitignore in Resources */,
 				D1962B30219EFE70004C8DD4 /* TutorialSecondViewController.xib in Resources */,
 				D1962B25219EFBDF004C8DD4 /* TutorialFirstViewController.xib in Resources */,
+				D1962B38219F0176004C8DD4 /* LoadingViewController.xib in Resources */,
 				D1962B1A219EFB2E004C8DD4 /* LaunchScreen.storyboard in Resources */,
 				D1962B17219EFB2E004C8DD4 /* Assets.xcassets in Resources */,
 			);
@@ -171,12 +181,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1962B37219F0176004C8DD4 /* LoadingViewController.swift in Sources */,
 				D1962B28219EFC12004C8DD4 /* AppCoordinator.swift in Sources */,
 				D1962B2A219EFC5B004C8DD4 /* BaseViewController.swift in Sources */,
 				D1962B2F219EFE70004C8DD4 /* TutorialSecondViewController.swift in Sources */,
 				D1962B10219EFB2D004C8DD4 /* AppDelegate.swift in Sources */,
 				D1962B34219F0051004C8DD4 /* TutorialCoordinator.swift in Sources */,
 				D1962B24219EFBDF004C8DD4 /* TutorialFirstViewController.swift in Sources */,
+				D1962B3A219F01AB004C8DD4 /* WeatherCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

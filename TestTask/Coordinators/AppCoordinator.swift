@@ -12,7 +12,8 @@ class AppCoordinator {
     
     private let window: UIWindow
     private var tutorialCoordinator: TutorialCoordinator?
-    
+    private var weatherCoordinator: WeatherCoordinator?
+
     init(_ window: UIWindow) {
         self.window = window
     }
@@ -27,6 +28,13 @@ class AppCoordinator {
         coordinator.start()
         tutorialCoordinator = coordinator
     }
+    
+    private func startWeatherFlow() {
+        let coordinator = WeatherCoordinator(window)
+        //coordinator.delegate = self
+        coordinator.start()
+        weatherCoordinator = coordinator
+    }
 }
 
 //MARK: - TutorialCoordinatorDelegate
@@ -34,5 +42,6 @@ extension AppCoordinator: TutorialCoordinatorDelegate {
     
     func tutorialCoordinatorDidComplete(_ coordinator: TutorialCoordinator) {
         tutorialCoordinator = nil
+        startWeatherFlow()
     }
 }
