@@ -22,6 +22,7 @@
 		D1962B38219F0176004C8DD4 /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1962B36219F0176004C8DD4 /* LoadingViewController.xib */; };
 		D1962B3A219F01AB004C8DD4 /* WeatherCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B39219F01AB004C8DD4 /* WeatherCoordinator.swift */; };
 		D1962B3C219F05DD004C8DD4 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B3B219F05DD004C8DD4 /* LocationManager.swift */; };
+		D1962B45219F0E8B004C8DD4 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B44219F0E8B004C8DD4 /* UserDefaults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		D1962B36219F0176004C8DD4 /* LoadingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		D1962B39219F01AB004C8DD4 /* WeatherCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCoordinator.swift; sourceTree = "<group>"; };
 		D1962B3B219F05DD004C8DD4 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		D1962B44219F0E8B004C8DD4 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				D1962B0F219EFB2D004C8DD4 /* AppDelegate.swift */,
+				D1962B43219F0E7A004C8DD4 /* Extensions */,
 				D1962B3D219F0AC1004C8DD4 /* Managers */,
 				D1962B26219EFC05004C8DD4 /* Coordinators */,
 				D1962B21219EFB91004C8DD4 /* View Controllers */,
@@ -116,6 +119,14 @@
 				D1962B3B219F05DD004C8DD4 /* LocationManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		D1962B43219F0E7A004C8DD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D1962B44219F0E8B004C8DD4 /* UserDefaults.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +209,7 @@
 				D1962B2F219EFE70004C8DD4 /* TutorialSecondViewController.swift in Sources */,
 				D1962B10219EFB2D004C8DD4 /* AppDelegate.swift in Sources */,
 				D1962B34219F0051004C8DD4 /* TutorialCoordinator.swift in Sources */,
+				D1962B45219F0E8B004C8DD4 /* UserDefaults.swift in Sources */,
 				D1962B24219EFBDF004C8DD4 /* TutorialFirstViewController.swift in Sources */,
 				D1962B3A219F01AB004C8DD4 /* WeatherCoordinator.swift in Sources */,
 				D1962B3C219F05DD004C8DD4 /* LocationManager.swift in Sources */,
