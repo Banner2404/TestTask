@@ -16,6 +16,7 @@
 		D1962B2A219EFC5B004C8DD4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B29219EFC5B004C8DD4 /* BaseViewController.swift */; };
 		D1962B2F219EFE70004C8DD4 /* TutorialSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B2D219EFE70004C8DD4 /* TutorialSecondViewController.swift */; };
 		D1962B30219EFE70004C8DD4 /* TutorialSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */; };
+		D1962B32219F0015004C8DD4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1962B31219F0015004C8DD4 /* .gitignore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D1962B29219EFC5B004C8DD4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D1962B2D219EFE70004C8DD4 /* TutorialSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondViewController.swift; sourceTree = "<group>"; };
 		D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialSecondViewController.xib; sourceTree = "<group>"; };
+		D1962B31219F0015004C8DD4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 		D1962B03219EFB2C004C8DD4 = {
 			isa = PBXGroup;
 			children = (
+				D1962B31219F0015004C8DD4 /* .gitignore */,
 				D1962B0E219EFB2D004C8DD4 /* TestTask */,
 				D1962B0D219EFB2D004C8DD4 /* Products */,
 			);
@@ -150,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1962B32219F0015004C8DD4 /* .gitignore in Resources */,
 				D1962B30219EFE70004C8DD4 /* TutorialSecondViewController.xib in Resources */,
 				D1962B25219EFBDF004C8DD4 /* TutorialFirstViewController.xib in Resources */,
 				D1962B1A219EFB2E004C8DD4 /* LaunchScreen.storyboard in Resources */,
