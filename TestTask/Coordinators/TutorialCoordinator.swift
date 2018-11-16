@@ -17,13 +17,15 @@ class TutorialCoordinator {
     weak var delegate: TutorialCoordinatorDelegate?
     
     private let window: UIWindow
+    private let locationManager: LocationManager
     
-    init(_ window: UIWindow) {
+    init(_ window: UIWindow, locationManager: LocationManager) {
         self.window = window
+        self.locationManager = locationManager
     }
     
     func start() {
-        window.rootViewController = TutorialFirstViewController(delegate: self)
+        window.rootViewController = TutorialFirstViewController(locationManager: locationManager, delegate: self)
     }
 }
 

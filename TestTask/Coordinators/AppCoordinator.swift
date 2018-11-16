@@ -11,11 +11,13 @@ import UIKit
 class AppCoordinator {
     
     private let window: UIWindow
+    private let locationManager: LocationManager
     private var tutorialCoordinator: TutorialCoordinator?
     private var weatherCoordinator: WeatherCoordinator?
 
-    init(_ window: UIWindow) {
+    init(_ window: UIWindow, locationManager: LocationManager) {
         self.window = window
+        self.locationManager = locationManager
     }
     
     func start() {
@@ -23,7 +25,7 @@ class AppCoordinator {
     }
     
     private func startTutorialFlow() {
-        let coordinator = TutorialCoordinator(window)
+        let coordinator = TutorialCoordinator(window, locationManager: locationManager)
         coordinator.delegate = self
         coordinator.start()
         tutorialCoordinator = coordinator

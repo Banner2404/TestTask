@@ -15,13 +15,39 @@ protocol TutorialFirstViewControllerDelegate: class {
 class TutorialFirstViewController: BaseViewController {
 
     weak var delegate: TutorialFirstViewControllerDelegate?
+    private let locationManager: LocationManager
+    @IBOutlet private weak var nextButton: UIButton!
     
-    convenience init(delegate: TutorialFirstViewControllerDelegate?) {
-        self.init()
+    init(locationManager: LocationManager, delegate: TutorialFirstViewControllerDelegate?) {
+        self.locationManager = locationManager
+        super.init()
         self.delegate = delegate
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateLocation), name: .LocationManagerDidUpdateLatestLocation, object: nil)
+        locationManager.requestAuthorizationIfNeeded()
+        updateNextButton()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     @IBAction private func nextButtonTap(_ sender: Any) {
         delegate?.tutorialFirstViewControllerDidComplete(self)
+    }
+    
+    @objc private func didUpdateLocation() {
+        updateNextButton()
+    }
+    
+    private func updateNextButton() {
+        nextButton.isEnabled = locationManager.latestLocation != nil
     }
 }
