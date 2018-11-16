@@ -30,7 +30,7 @@ class TutorialFirstViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateLocation), name: .LocationManagerDidUpdateLatestLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateLocation), name: .locationManagerDidUpdateLatestLocation, object: nil)
         locationManager.requestAuthorizationIfNeeded()
         updateNextButton()
     }

@@ -18,8 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         let locationManager = DefaultLocationManager()
+        let networkManager = DefaultNetworkManager()
+        let weatherManager = DefaultWeatherManager(locationManager: locationManager, networkManager: networkManager)
         locationManager.start()
-        appCoordinator = AppCoordinator(window, locationManager: locationManager)
+        appCoordinator = AppCoordinator(window, locationManager: locationManager, weatherManager: weatherManager)
         appCoordinator.start()
         window.makeKeyAndVisible()
         return true

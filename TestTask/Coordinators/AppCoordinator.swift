@@ -12,12 +12,14 @@ class AppCoordinator {
     
     private let window: UIWindow
     private let locationManager: LocationManager
+    private let weatherManager: WeatherManager
     private var tutorialCoordinator: TutorialCoordinator?
     private var weatherCoordinator: WeatherCoordinator?
 
-    init(_ window: UIWindow, locationManager: LocationManager) {
+    init(_ window: UIWindow, locationManager: LocationManager, weatherManager: WeatherManager) {
         self.window = window
         self.locationManager = locationManager
+        self.weatherManager = weatherManager
     }
     
     func start() {
@@ -36,7 +38,7 @@ class AppCoordinator {
     }
     
     private func startWeatherFlow() {
-        let coordinator = WeatherCoordinator(window)
+        let coordinator = WeatherCoordinator(window, weatherManager: weatherManager)
         //coordinator.delegate = self
         coordinator.start()
         weatherCoordinator = coordinator

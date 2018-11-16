@@ -17,14 +17,14 @@ protocol LocationManager {
 }
 
 extension Notification.Name {
-    static let LocationManagerDidUpdateLatestLocation = Notification.Name("LocationManagerDidUpdateLatestLocation")
+    static let locationManagerDidUpdateLatestLocation = Notification.Name("LocationManagerDidUpdateLatestLocation")
 }
 
 class DefaultLocationManager: NSObject, LocationManager {
     
     var latestLocation: Location? {
         didSet {
-            NotificationCenter.default.post(name: .LocationManagerDidUpdateLatestLocation, object: self)
+            NotificationCenter.default.post(name: .locationManagerDidUpdateLatestLocation, object: self)
         }
     }
     private let geocoder = CLGeocoder()
@@ -53,6 +53,7 @@ class DefaultLocationManager: NSObject, LocationManager {
                 print(error)
             }
             guard let cityName = placemarks?.first?.locality else { return }
+            print(cityName)
             self.latestLocation = Location(clLocation: clLocation, city: cityName)
         }
     }
