@@ -10,30 +10,29 @@ import UIKit
 
 class AppCoordinator {
     
-    
     private let window: UIWindow
+    private var tutorialCoordinator: TutorialCoordinator?
     
     init(_ window: UIWindow) {
         self.window = window
     }
     
     func start() {
-        window.rootViewController = TutorialFirstViewController(delegate: self)
+        startTutorialFlow()
+    }
+    
+    private func startTutorialFlow() {
+        let coordinator = TutorialCoordinator(window)
+        coordinator.delegate = self
+        coordinator.start()
+        tutorialCoordinator = coordinator
     }
 }
 
-//MARK: - TutorialFirstViewControllerDelegate
-extension AppCoordinator: TutorialFirstViewControllerDelegate {
+//MARK: - TutorialCoordinatorDelegate
+extension AppCoordinator: TutorialCoordinatorDelegate {
     
-    func tutorialFirstViewControllerDidComplete(_ viewController: TutorialFirstViewController) {
-        window.rootViewController = TutorialSecondViewController(delegate: self)
-    }
-}
-
-//MARK: - TutorialSecondViewControllerDelegate
-extension AppCoordinator: TutorialSecondViewControllerDelegate {
-    
-    func tutorialSecondViewControllerDidComplete(_ viewController: TutorialSecondViewController) {
-        
+    func tutorialCoordinatorDidComplete(_ coordinator: TutorialCoordinator) {
+        tutorialCoordinator = nil
     }
 }

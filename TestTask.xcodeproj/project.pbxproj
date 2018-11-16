@@ -17,6 +17,7 @@
 		D1962B2F219EFE70004C8DD4 /* TutorialSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B2D219EFE70004C8DD4 /* TutorialSecondViewController.swift */; };
 		D1962B30219EFE70004C8DD4 /* TutorialSecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */; };
 		D1962B32219F0015004C8DD4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D1962B31219F0015004C8DD4 /* .gitignore */; };
+		D1962B34219F0051004C8DD4 /* TutorialCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		D1962B2D219EFE70004C8DD4 /* TutorialSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSecondViewController.swift; sourceTree = "<group>"; };
 		D1962B2E219EFE70004C8DD4 /* TutorialSecondViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialSecondViewController.xib; sourceTree = "<group>"; };
 		D1962B31219F0015004C8DD4 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				D1962B27219EFC12004C8DD4 /* AppCoordinator.swift */,
+				D1962B33219F0051004C8DD4 /* TutorialCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				D1962B2A219EFC5B004C8DD4 /* BaseViewController.swift in Sources */,
 				D1962B2F219EFE70004C8DD4 /* TutorialSecondViewController.swift in Sources */,
 				D1962B10219EFB2D004C8DD4 /* AppDelegate.swift in Sources */,
+				D1962B34219F0051004C8DD4 /* TutorialCoordinator.swift in Sources */,
 				D1962B24219EFBDF004C8DD4 /* TutorialFirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
