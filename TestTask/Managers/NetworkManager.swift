@@ -25,27 +25,27 @@ class DefaultNetworkManager: NetworkManager {
     }
     
     private func perform<T: Decodable>(_ request: URLRequest, responseType: T.Type, completion: @escaping ResponseCompletion<T, NetworkError>) {
-        print(request.url?.absoluteString)
         URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                completion(.failure(.client(error)))
-                return
+            DispatchQueue.main.async {
+                if let error = error {
+                    completion(.failure(.client(error)))
+                    return
+                }
+                guard let httpResponse = response as? HTTPURLResponse,
+                    let data = data else {
+                        completion(.failure(.incorrectResponse))
+                        return
+                }
+                guard httpResponse.statusCode < 400 else {
+                    completion(.failure(.statusCode(httpResponse.statusCode)))
+                    return
+                }
+                guard let responseObject = try? JSONDecoder().decode(responseType, from: data) else {
+                    completion(.failure(.unableToParse(data)))
+                    return
+                }
+                completion(.success(responseObject))
             }
-            guard let httpResponse = response as? HTTPURLResponse,
-                  let data = data else {
-                completion(.failure(.incorrectResponse))
-                return
-            }
-            print(try? JSONSerialization.jsonObject(with: data, options: []))
-            guard httpResponse.statusCode < 400 else {
-                completion(.failure(.statusCode(httpResponse.statusCode)))
-                return 
-            }
-            guard let responseObject = try? JSONDecoder().decode(responseType, from: data) else {
-                completion(.failure(.unableToParse(data)))
-                return 
-            }
-            completion(.success(responseObject))
         }.resume()
     }
 }

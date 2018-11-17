@@ -26,6 +26,7 @@ class AppCoordinator {
         if UserDefaults.standard.isTutorialComplete {
             startWeatherFlow()
         } else {
+            UserDefaults.standard.setTutorialComplete()
             startTutorialFlow()
         }
     }
@@ -39,7 +40,6 @@ class AppCoordinator {
     
     private func startWeatherFlow() {
         let coordinator = WeatherCoordinator(window, weatherManager: weatherManager)
-        //coordinator.delegate = self
         coordinator.start()
         weatherCoordinator = coordinator
     }
@@ -50,7 +50,6 @@ extension AppCoordinator: TutorialCoordinatorDelegate {
     
     func tutorialCoordinatorDidComplete(_ coordinator: TutorialCoordinator) {
         tutorialCoordinator = nil
-        UserDefaults.standard.setSetTutorialComplete()
         startWeatherFlow()
     }
 }

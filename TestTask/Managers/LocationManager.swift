@@ -11,6 +11,7 @@ import CoreLocation
 
 protocol LocationManager {
     var latestLocation: Location? { get }
+    var authorizationStatus: CLAuthorizationStatus? { get }
     
     func requestAuthorizationIfNeeded()
     func start()
@@ -18,6 +19,7 @@ protocol LocationManager {
 
 extension Notification.Name {
     static let locationManagerDidUpdateLatestLocation = Notification.Name("LocationManagerDidUpdateLatestLocation")
+    static let locationManagerDidUpdateAuthorization = Notification.Name("LocationManagerDidUpdateAuthorization")
 }
 
 class DefaultLocationManager: NSObject, LocationManager {
@@ -25,6 +27,11 @@ class DefaultLocationManager: NSObject, LocationManager {
     var latestLocation: Location? {
         didSet {
             NotificationCenter.default.post(name: .locationManagerDidUpdateLatestLocation, object: self)
+        }
+    }
+    var authorizationStatus: CLAuthorizationStatus? {
+        didSet {
+            NotificationCenter.default.post(name: .locationManagerDidUpdateAuthorization, object: self)
         }
     }
     private let geocoder = CLGeocoder()
@@ -52,8 +59,8 @@ class DefaultLocationManager: NSObject, LocationManager {
             if let error = error {
                 print(error)
             }
-            guard let cityName = placemarks?.first?.locality else { return }
-            print(cityName)
+            guard let placemark = placemarks?.first else { return }
+            guard let cityName = placemark.locality ?? placemark.name else { return }
             self.latestLocation = Location(clLocation: clLocation, city: cityName)
         }
     }
@@ -63,7 +70,7 @@ class DefaultLocationManager: NSObject, LocationManager {
 extension DefaultLocationManager: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print(status.rawValue)
+        authorizationStatus = status
         switch status {
         case .authorizedAlways, .authorizedWhenInUse:
             manager.requestLocation()

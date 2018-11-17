@@ -30,7 +30,7 @@ class TutorialFirstViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateLocation), name: .locationManagerDidUpdateLatestLocation, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUpdateAuthorization), name: .locationManagerDidUpdateAuthorization, object: nil)
         locationManager.requestAuthorizationIfNeeded()
         updateNextButton()
     }
@@ -43,11 +43,12 @@ class TutorialFirstViewController: BaseViewController {
         delegate?.tutorialFirstViewControllerDidComplete(self)
     }
     
-    @objc private func didUpdateLocation() {
+    @objc
+    private func didUpdateAuthorization() {
         updateNextButton()
     }
     
     private func updateNextButton() {
-        nextButton.isEnabled = locationManager.latestLocation != nil
+        nextButton.isEnabled = locationManager.authorizationStatus == .authorizedWhenInUse
     }
 }

@@ -14,7 +14,7 @@ extension UserDefaults {
         return bool(forKey: Keys.tutorialMark)
     }
     
-    func setSetTutorialComplete() {
+    func setTutorialComplete() {
         set(true, forKey: Keys.tutorialMark)
     }
     

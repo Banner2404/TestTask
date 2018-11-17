@@ -11,6 +11,7 @@ import UIKit
 class WeatherViewController: BaseViewController {
 
     private let weatherManager: WeatherManager
+    @IBOutlet private weak var weatherLabel: UILabel!
     
     init(weatherManager: WeatherManager) {
         self.weatherManager = weatherManager
@@ -33,6 +34,10 @@ class WeatherViewController: BaseViewController {
     
     @objc
     private func updateWeatherInfo() {
-        print(weatherManager.latestWeather)
+        guard let weather = weatherManager.latestWeather else {
+            weatherLabel.text = "No data"
+            return
+        }
+        weatherLabel.text = "\(Int(weather.temperature)) degrees in \(weather.location.city)"
     }
 }
